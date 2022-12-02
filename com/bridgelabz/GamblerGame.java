@@ -10,14 +10,20 @@ public class GamblerGame {
     public static int everyDayGame() {
         int initialAmount = 100;
         int eachGameBet = 1;
-        double randomValue = Math.random();
-        if (randomValue > 0.5) {
-            initialAmount += eachGameBet;
-            System.out.println("Won the game");
-        } else {
-            initialAmount -= eachGameBet;
-            System.out.println("Lost the game");
+        int eachDayGame = 1;
+        while (eachDayGame!=0) {
+            if (initialAmount ==50 || initialAmount == 150){
+                break;
+            }
+            double randomValue = Math.random();
+            if (randomValue > 0.5){
+                initialAmount += eachGameBet;
+            } else {
+                initialAmount -= eachGameBet;
+            }
+            eachDayGame++;
         }
+        System.out.println("Number of games played : "+eachDayGame);
         return initialAmount;
     }
 
