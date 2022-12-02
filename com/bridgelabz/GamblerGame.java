@@ -7,23 +7,26 @@ public class GamblerGame {
     /**
      * solve the gambler gaming techniques
      */
+    public static int amountAtDayStarting = 100;
+
     public static int everyDayGame() {
         int initialAmount = 100;
         int eachGameBet = 1;
         int eachDayGame = 1;
-        while (eachDayGame!=0) {
-            if (initialAmount ==50 || initialAmount == 150){
+        while (eachDayGame != 0) {
+            if (initialAmount == amountAtDayStarting * 0.5 || initialAmount == amountAtDayStarting * 1.5) {
                 break;
             }
             double randomValue = Math.random();
-            if (randomValue > 0.5){
+            if (randomValue > 0.5) {
                 initialAmount += eachGameBet;
             } else {
                 initialAmount -= eachGameBet;
             }
             eachDayGame++;
         }
-        System.out.println("Number of games played : "+eachDayGame);
+        System.out.println("Number of games played : " + eachDayGame);
+        System.out.println("End of the day amount is " + initialAmount);
         return initialAmount;
     }
 
@@ -31,7 +34,21 @@ public class GamblerGame {
         /**
          * call the everyDayGame in main method
          */
-        int amountAtDayEnd = everyDayGame();
-        System.out.println("End of the amount is " + amountAtDayEnd);
+        int totalAmountPerMonth = 0;
+        int monthDays=20;
+        for (int i =1;i<=monthDays;i++){
+            System.out.println(i+" Day : ");
+            int perDayAmount = everyDayGame();
+            totalAmountPerMonth+=perDayAmount;
+        }
+        System.out.println("***********************************");
+        System.out.println("Total month amount : "+totalAmountPerMonth);
+        if ((amountAtDayStarting*monthDays)>totalAmountPerMonth ){
+            System.out.println("Total loose amount is "+((amountAtDayStarting*monthDays)-totalAmountPerMonth));
+        }
+        else {
+            System.out.println("Total win amount is "+((totalAmountPerMonth)-(amountAtDayStarting*monthDays)));
+        }
+        System.out.println("***********************************");
     }
 }
