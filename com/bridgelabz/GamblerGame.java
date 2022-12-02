@@ -35,20 +35,28 @@ public class GamblerGame {
          * call the everyDayGame in main method
          */
         int totalAmountPerMonth = 0;
-        int monthDays=20;
-        for (int i =1;i<=monthDays;i++){
-            System.out.println(i+" Day : ");
+        int winningDays = 0;
+        int loosingDays = 0;
+        int monthDays = 20;
+        for (int i = 1; i <= monthDays; i++) {
+            System.out.println(i + " Day : ");
             int perDayAmount = everyDayGame();
-            totalAmountPerMonth+=perDayAmount;
+            if (perDayAmount >= 100) {
+                winningDays++;
+            } else {
+                loosingDays++;
+            }
+            totalAmountPerMonth += perDayAmount;
         }
         System.out.println("***********************************");
-        System.out.println("Total month amount : "+totalAmountPerMonth);
-        if ((amountAtDayStarting*monthDays)>totalAmountPerMonth ){
-            System.out.println("Total loose amount is "+((amountAtDayStarting*monthDays)-totalAmountPerMonth));
-        }
-        else {
-            System.out.println("Total win amount is "+((totalAmountPerMonth)-(amountAtDayStarting*monthDays)));
+        System.out.println("Total month amount : " + totalAmountPerMonth);
+        if ((amountAtDayStarting * monthDays) > totalAmountPerMonth) {
+            System.out.println("Total loose amount is " + ((amountAtDayStarting * monthDays) - totalAmountPerMonth));
+        } else {
+            System.out.println("Total win amount is " + ((totalAmountPerMonth) - (amountAtDayStarting * monthDays)));
         }
         System.out.println("***********************************");
+        System.out.println("Winning days : " + winningDays);
+        System.out.println("Loosing days : " + loosingDays);
     }
 }
