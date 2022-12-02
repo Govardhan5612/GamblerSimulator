@@ -1,5 +1,8 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Govardhan Reddy
  */
@@ -7,6 +10,7 @@ public class GamblerGame {
     /**
      * solve the gambler gaming techniques
      */
+
     public static int amountAtDayStarting = 100;
 
     public static int everyDayGame() {
@@ -34,6 +38,8 @@ public class GamblerGame {
         /**
          * call the everyDayGame in main method
          */
+        List<Integer> winDaysList = new ArrayList<>();
+        List<Integer> looseDaysList = new ArrayList<>();
         int totalAmountPerMonth = 0;
         int winningDays = 0;
         int loosingDays = 0;
@@ -42,8 +48,10 @@ public class GamblerGame {
             System.out.println(i + " Day : ");
             int perDayAmount = everyDayGame();
             if (perDayAmount >= 100) {
+                winDaysList.add(i);
                 winningDays++;
             } else {
+                looseDaysList.add(i);
                 loosingDays++;
             }
             totalAmountPerMonth += perDayAmount;
@@ -58,5 +66,8 @@ public class GamblerGame {
         System.out.println("***********************************");
         System.out.println("Winning days : " + winningDays);
         System.out.println("Loosing days : " + loosingDays);
+        System.out.println("***********************************");
+        System.out.println("Luckiest days list :  " + winDaysList);
+        System.out.println("Unluckiest days list : " + looseDaysList);
     }
 }
