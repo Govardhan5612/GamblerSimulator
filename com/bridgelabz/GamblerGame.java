@@ -69,5 +69,12 @@ public class GamblerGame {
         System.out.println("***********************************");
         System.out.println("Luckiest days list :  " + winDaysList);
         System.out.println("Unluckiest days list : " + looseDaysList);
+        System.out.println("***********************************");
+        System.out.print("Play for next month : ");
+        if (loosingDays > winningDays) {
+            System.out.print("Gambler not play for next month");
+        } else {
+            System.out.print("Gambler play for next month");
+        }
     }
 }
