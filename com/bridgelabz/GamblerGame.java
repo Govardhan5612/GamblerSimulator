@@ -11,10 +11,12 @@ public class GamblerGame {
         int initialAmount = 100;
         int eachGameBet = 1;
         double randomValue = Math.random();
-        if (randomValue <= 0.5) {
+        if (randomValue > 0.5) {
             initialAmount += eachGameBet;
+            System.out.println("Won the game");
         } else {
             initialAmount -= eachGameBet;
+            System.out.println("Lost the game");
         }
         return initialAmount;
     }
